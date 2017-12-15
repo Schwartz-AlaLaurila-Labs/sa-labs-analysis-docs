@@ -1,0 +1,173 @@
+# 1.4 Building analysis pipeline
+
+It involves 4 steps,
+
+### Step 1- Creating an analysis project
+
+```Matlab
+[project, offlineAnalysisManager] = createAnalysisProject(...
+    'Example-Analysis_01',...            % Name of the project
+    'experiments', {'101217Dc*Amp2'},... % Experiment date with amplifier channel 
+    'override', true);                   % Would you like to override the project
+```
+
+The `createAnalysisProject` checks whether it has the required cell data files. If not then it attempts to parse the raw data file \(h5\) and generates the cell data. For existing celldata , it just loads the saved object.
+
+The function returns project which is stored as JSON file with following attributes.
+
+```json
+{
+    "identifier": "Example-Analysis_01",
+    "description": "Hope it will be defined later !",
+    "experimentList": [
+        "101217Dc*Amp2"
+    ],
+    "cellDataIdList": [
+        "101217Dcc2_Amp2"
+    ],
+    "analysisDate": "20171215",
+    "analysisResultIdList": [],
+    "performedBy": "narayas2",
+    "file": "C:\\Users\\narayas2\\data\\analysis\\Projects\\Example-Analysis_01\\project.json"
+}
+```
+
+### Step 2 - Defining an epoch filter
+
+Epoch filter defines the hierarchy in which epochs will be grouped together. It is a Matlab structure with following attributes,
+
+* type -  An unique name for the filter definition
+
+```Matlab
+analysisFilter.type = 'LightStepAnalysis'
+```
+
+* buildTreeBy - defines the hierarchy in which the epochs have to be grouped based on _epoch parameter names. _
+  Let's assume the epoch has the parameters displayName, intensity, and stimTime. 
+
+```
+analysisFilter.buildTreeBy = {'displayName', 'intensity', 'stimTime'};
+```
+
+> Example:
+>
+> ```
+>     '  displayName   '  First level grouping of filter. 
+>     '                '  It matches all the epoch which has displayName parameter
+>                         and groups them according to its value.
+>     
+>     '   intensity    '  Second level grouping of filter. 
+>                         It similarly matches the intensity parameter
+>                         and groups according to its value
+>     '                '
+>     '       |        '
+>     '    stimTime    '  So on ...
+> ```
+
+It is also possible to build the epoch grouping with different parameters under the same level.
+
+```
+analysisFilter.buildTreeBy = {'displayName', 'intensity; probeAxis; textureAngle', 'devices'};
+```
+
+> ```
+>     '            displayName             '
+>     '     +----------++----------+       '
+>     '     |          |           |       '
+>     ' intensity  probeAxis textureAngle  ' 
+>     '     |          |                   '
+>     '     |          |           |       '
+>     '  devices    devices     devices    '
+> ```
+
+* splitValue -  It filters further based on the _epoch parameter values_. Let's assume the epochs with displayName has values LightStep, MovingBar, DriftingGrating. In order to filter the epoch which has _displayName equals Light Step_.  
+
+```Matlab
+analysisPreset.displayName.splitValue = {'Light Step'};
+```
+
+It is also possible to attach a function handle to buildTree & splitValues.
+
+* featureExtractor - Attaches a function handle to filtered epoch group for further evaluation, more on the feature extractor will be explained in step4. 
+
+In summary, the complete filter definition to build a light step analysis is as follows,
+
+```Matlab
+analysisFilter = struct()
+analysisFilter.type = 'LightStepAnalysis'
+analysisFilter.buildTreeBy = {'displayName', 'intensity', 'stimTime'};
+analysisPreset.displayName.splitValue = {'Light Step'};
+```
+
+### Step 3 - Building the analysis
+
+```Matlab
+buildAnalysis('Example-Analysis',... % Name of the analysis project
+                analysisFilter)      % Type of analysis filter(s)
+```
+
+The function `buildAnalysis` generates the analysis tree as per the filter definition and updates the project file with analysis results. It is also possible to build analysis for multiple filters. In that case, passing an array of analysis filter to the`bulidAnalysis` will do the job.
+
+The example project file after analysis will have analysis date and analysis result file name as additional attributes,
+
+```json
+{
+   "identifier": "Example-Analysis",
+    ... 
+    ....
+
+    "analysisDate": "20171215",
+    "analysisResultIdList": [
+        "LightStepAnalysis-101217Dcc2_Amp2"
+    ],   ... 
+   ...
+    "file": "C:\\Users\\narayas2\\data\\analysis\\Projects\\Example-Analysis_01\\project.json"
+}
+```
+
+> Example Ligt Step Analysis tree for cell data 101217Dcc2\_Amp2
+>
+> ```
+>     '         project==Example-Analysis_01 (1)           '
+>     '                                                    '
+>     '                         |                          '
+>     '  analysis==LightStepAnalysis-101217Dcc2_Amp2 (2)   '
+>     '                                                    '
+>     '                         |                          '
+>     '            displayName==Light Step (3)             '
+>     '                                                    '
+>     '                         |                          '
+>     '                 intensity==1 (4)                   '
+>     '            +------------+------------+             '
+>     '            |                         |             '
+>     '    stimTime==20 (5)          stimTime==500 (6)     '
+> ```
+
+### Step 4 - Attaching feature extractor & Rebuilding the analysis
+
+The feature extractor extracts features from epoch \(or\) group of epochs. To perform the feature extractor, assign the feature extractor function handle to desired tree level and rebuild the analysis. In below example, we assign psthExtractor to compute and store the Pre-Stimulus Time Histogram \(PSTH\) from a group of epochs.
+
+```
+analysisFilter.stimTime.featureExtractor = {@(analysis, epochGroup, analysisParameter)...
+    sa_labs.analysis.common.extractors.psthExtractor(...
+    analysis,...
+    epochGroup,...
+    analysisParameter)...
+    };
+```
+
+Then rebuild the analysis,
+
+```
+buildAnalysis('Example-Analysis',... % Name of the analysis project
+                analysisFilter)      % Type of analysis filter(s)
+```
+
+As a result, the epoch group will have a new feature named PSTH.
+
+> Kindly make a note of arguments in the feature extractor functio. It is mandatory to have function signature of format  `analysis, epochGroup, analysisParameter.`
+>
+> Guidelines for creating a [feature extractor](/building-analysis-pipeline/32-creating-feature-extractor.md) is explained in next section.
+
+
+
