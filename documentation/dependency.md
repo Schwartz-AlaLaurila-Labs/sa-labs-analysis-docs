@@ -1,7 +1,5 @@
 # 1.6 Dependency
 
-DescriptionDescription
-
 | Toolbox Name | Description |
 | :--- | :--- |
 | sa-labs-analysis-core | Core analysis library API |
