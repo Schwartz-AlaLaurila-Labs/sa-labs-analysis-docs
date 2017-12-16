@@ -15,7 +15,7 @@ Analysis project helps with organizing the cells for a defined purpose. It has t
 
 Based on experiments pattern, the `createAnalysisProject` checks whether it has the already parsed raw data files. If not then it parses the raw data file and generates the cell specific data from the raw data. Otherwise , it loads the already parsed cell data.
 
-The function returns project which is stored as JSON file with following attributes.
+The function saves a simple text file formatted as JSON[^1] with following attributes.
 
 ```json
 {
@@ -172,4 +172,6 @@ As a result, the epoch group will have a new feature named PSTH.
 > Guidelines for creating a [feature extractor](/building-analysis-pipeline/creating-feature-extractor.md) is explained in next section.
 
 
+
+[^1]: [JSON](https://www.json.org/)
 
