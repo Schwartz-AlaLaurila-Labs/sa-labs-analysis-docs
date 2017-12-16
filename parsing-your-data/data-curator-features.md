@@ -1,15 +1,14 @@
 ## 1.3.1 Data Curator Features
 
-a\) Visualize epoch parameters using**`diaryPlot`**
+#### a\) Visualize epoch parameters using`diaryPlot`
 
-**`diaryPlot`**visualizes the** epoch Time** \(or\) **epoch Number **\(X-axis\)** **Versus **list of epoch parameters **\(Y-axis\).  
-It provides an overview of how epoch parameters changed over the experiment.
+`diaryPlot`visualizes the epoch parameters `(Y axis)` for each epoch time \(or\) epoch number \(`X axis`\). It provides an overview of which parameters and stimuli were applied in the different epochs during the course of the experiment.
 
 ![](/assets/diary_plot.png)
 
-### b\) Detect spikes and visualize the epoch with spike details.
+#### b\) Pre-processor functions: detecting and visualizing action potentials
 
-Spike detection functionality is available in the list of pre-processor along with other registered pre-processor. On click of `SimpleSpikeDetector`, its parameters are displayed in the panel below. Given a simple threshold, it will detect the spikes from the data on the press of execute button.
+Spike detection functionality is available in the list of pre-processor along with other registered pre-processor. On click of `simpleSpikeDetector`, its parameters are displayed in the panel below. Given a simple threshold, it will detect the spikes from the data on the press of execute button.
 
 ![](/assets/spike_detection_on_curator.png)
 
