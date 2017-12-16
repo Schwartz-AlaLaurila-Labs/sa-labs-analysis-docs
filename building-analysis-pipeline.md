@@ -1,8 +1,10 @@
-# 1.4 Building analysis pipeline
+# 1.4 Building an analysis pipeline
 
-It involves 4 steps,
+To build an analysis pipeline requires 4 steps,
 
 ### Step 1- Creating an analysis project
+
+Analysis project helps with organizing the cells for a defined purpose. It has the file names of cell data and its analyzed result. 
 
 ```Matlab
 [project, offlineAnalysisManager] = createAnalysisProject(...
@@ -11,7 +13,7 @@ It involves 4 steps,
     'override', true);                   % Would you like to override the project
 ```
 
-The `createAnalysisProject` checks whether it has the required cell data files. If not then it attempts to parse the raw data file \(h5\) and generates the cell data. For existing celldata , it just loads the saved object.
+Based on experiments pattern, the `createAnalysisProject` checks whether it has the already parsed raw data files. If not then it parses the raw data file and generates the cell data from the raw data. For existing celldata , it just loads the saved object.
 
 The function returns project which is stored as JSON file with following attributes.
 
