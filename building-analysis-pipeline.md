@@ -107,9 +107,7 @@ buildAnalysis('Example-Analysis',... % Name of the analysis project
                 analysisFilter)      % Type of analysis filter(s)
 ```
 
-The function `buildAnalysis` generates the analysis tree as per the filter definition and updates the project file with analysis results. It is also possible to build analysis for multiple filters. In that case, passing an array of analysis filter to the`bulidAnalysis` will do the job.
-
-The example project file after analysis will have analysis date and analysis result file name as additional attributes,
+The function `buildAnalysis` generates the analysis tree as per the filter definition and updates the project file with analysis results. The  project file after analysis will have analysis date and analysis result file name as additional attributes,
 
 ```json
 {
@@ -143,6 +141,8 @@ The example project file after analysis will have analysis date and analysis res
 >     '            |                         |             '
 >     '    stimTime==20 (5)          stimTime==500 (6)     '
 > ```
+
+It is also possible to build an analysis for multiple filters. In that case, passing an array of analysis filter to the function`bulidAnalysis` will do the job. 
 
 ### Step 4 - Attaching feature extractor & Rebuilding the analysis
 
