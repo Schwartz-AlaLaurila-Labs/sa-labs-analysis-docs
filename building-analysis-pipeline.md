@@ -142,7 +142,7 @@ The function `buildAnalysis` generates the analysis tree as per the filter defin
 >     '    stimTime==20 (5)          stimTime==500 (6)     '
 > ```
 
-It is also possible to build an analysis for multiple filters. In that case, passing an array of analysis filter to the function`bulidAnalysis` will do the job. 
+It is also possible to build the analysis for multiple filters. In that case, passing an array of analysis filter to the function`bulidAnalysis` will do the job. 
 
 ### Step 4 - Attaching feature extractor & Rebuilding the analysis
 
