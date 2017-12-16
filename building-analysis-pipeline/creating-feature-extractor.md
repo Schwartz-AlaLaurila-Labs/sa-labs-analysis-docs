@@ -9,23 +9,19 @@ Let's focus on creating a simple extractor. As a rule of thumb
    3. analysisParameter - A simple Matlab structure contains the parameters used in feature extractor. 
 
    > Always add comments describing the role of analysis parameter and its default value.
-3. As the last rule, think about visualizing the feature. If its a simple line plot then specify the x-axis, x label, y label and title of the plot while adding the feature. 
+3. As the last rule, think about visualizing the feature. If its a simple line plot then specify the x-axis, x label, y label and title of  plot while adding the feature. 
+
+Now that we know our rules, let's create a `simpleExtractor`function which computes the mean of epoch and add it to the epochGroup
 
 ```
 function simpleExtractor(analysis, epochGroup, paramter)
-% description : a brief
-% param1:
-%   default : value1
-%   description: what is the role of param1 in analysis?
-% param2:
-%   default: value2
-%   description: what is the role of param2 in analysis?
+% description : Compute the mean for a given epochGroup and add it to epochGroup
 % ---
 
 end
 ```
 
-As a next step, Let's compute the mean response of epoch and save it back to the epochGroup.
+As a next step, compute the mean response of epoch and save it back to the epochGroup.
 
 ```
 epochCell = epochGroup.getFeatureData('EPOCH'); % 
@@ -35,7 +31,7 @@ meanResponse = mean(epoch); % Mean of epoch
 epochGroup.createFeature('MEAN_RESPONSE', meanResponse);
 ```
 
-As another example, Let's focus on the `createFeature` in[`psthExtractor.m`](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-util/blob/master/src/main/matlab/%2Bsa_labs/%2Banalysis/%2Bcommon/%2Bextractors/psthExtractor.m). The PSTH feature can be easily visualized using Matlab `plot`. All the required attributes for the plot can be passed assigned while creating the feature.
+As another example to create feature, focus on the `createFeature` in[`psthExtractor.m`](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-util/blob/master/src/main/matlab/%2Bsa_labs/%2Banalysis/%2Bcommon/%2Bextractors/psthExtractor.m). 
 
 ```
 function psthExtractor(~, epochGroup, paramter)
@@ -64,5 +60,5 @@ function psthExtractor(~, epochGroup, paramter)
 end
 ```
 
-
+The PSTH feature has all the required attributes for the plot and is used to visualize the PSTH. This will be explained in next section -  [visualizing your results](/visualizing-your-results.md). 
 
