@@ -16,7 +16,7 @@
 Assuming you have properly installed the toolbox. The `tbUseProject('sa-labs-analysis')`will start installing the data analysis toolbox. On successful installation, MATLAB console should look like below  
 ![](/assets/sa_labs_installation_status.png)
 
-> Now that we have analysis toolbox installed [let's parse some data](/parsing-your-data.md).
+> Now that we have analysis toolbox installed let's [parse some data](/parsing-your-data.md).
 
 
 

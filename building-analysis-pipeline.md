@@ -167,7 +167,7 @@ As a result, the epoch group will have a new feature named PSTH.
 
 > Kindly make a note of arguments in the feature extractor functio. It is mandatory to have function signature of format  `analysis, epochGroup, analysisParameter.`
 >
-> Guidelines for creating a [feature extractor](/building-analysis-pipeline/32-creating-feature-extractor.md) is explained in next section.
+> Guidelines for creating a [feature extractor](/building-analysis-pipeline/creating-feature-extractor.md) is explained in next section.
 
 
 

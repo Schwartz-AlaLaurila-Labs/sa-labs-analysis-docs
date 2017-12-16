@@ -8,7 +8,7 @@ Data curator is the MATLAB based GUI for parsing, pre-processing and visualizing
 * Add / Remove parameter to epoch or cell data
 * Registering your own plots and pre-processors
 
-The detailed usage of functionality is listed in [data curator features](/02-parsing-your-data/21-data-curator-features.md)
+The detailed usage of functionality is listed in [data curator features](/parsing-your-data/data-curator-features.md)
 
 a\) Run`openCurator`from MATLAB command line. It will open the Data Curator window as below.
 
@@ -26,7 +26,7 @@ c\) On open, the data will be parsed and the curator window will be updated as b
 
 ![](/assets/curator_with_data.png)
 
-> Let's further explore the [data curator features](/02-parsing-your-data/21-data-curator-features.md)
+> Let's further explore the [data curator features](/parsing-your-data/data-curator-features.md)
 
 
 
