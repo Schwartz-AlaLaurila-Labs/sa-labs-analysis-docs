@@ -1,12 +1,12 @@
 # 1.5 Visualizing your results
 
-To visualize the analysis tree and created features, run `openTreeBrowser.m`from the matlab command line. It takes the analysis project as an input argument.
+To visualize the analysis tree and features, run `openTreeBrowser.m`from the Matlab command line. It takes the analysis project as an input argument. Let's open the previously created analysis project **Example-Analysis\_01.**
 
-Let's open the analysis project **Example-Analysis\_01 **which we created in the analysis build pipeline,`openTreeBrowse('Example-Analysis_01').`The user interface shows the epoch group and the list of features available at each epoch group.
-
-`epochGroupParameterPlot`It is similar to the diary plot in data curator, however, the difference is, it plots only the subset of epochs \(i.e epoch group\).
+`openTreeBrowse('Example-Analysis_01');`
 
 ![](/assets/tree_browser.png)
+
+The user interface shows the epoch group and the list of features available at each epoch group. The panel below the tree describes the parameter present in selected node. `epochGroupParameterPlot` is similar to the diary plot in data curator, it plots only the subset of epochs \(i.e epoch group\).
 
 ## a\) Plot Feature
 
