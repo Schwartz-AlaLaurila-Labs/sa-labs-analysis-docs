@@ -2,11 +2,11 @@
 
  DescriptionDescription
 
- Core analysis library API
+ 
 
 | Toolbox Name | Toolbox Name |
 | :--- | :--- |
-|  |  |
+| sa-labs-analysis-core |  Core analysis library API |
 
 sa-labs-util Curated statistical library for electrophysiology analysis
 
