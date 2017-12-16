@@ -13,7 +13,7 @@ Spike detection functionality is available in the list of pre-processor along wi
 
 ![](/assets/spike_detection_on_curator.png)
 
-Now let's carefully go through the parameter panel and documentation of `simpleSpikeDetector `function. The parameters documented in  `function simpleSpikeDetector ...`is parsed by the data curator user interface and updated in the above parameter panel.
+Now let's carefully go through the parameter panel and documentation of `simpleSpikeDetector`function. The parameters documented in  `function simpleSpikeDetector ...`is parsed by the data curator user interface and updated in the above parameter panel.
 
 ```
 function simpleSpikeDetector(epochs, parameter)
