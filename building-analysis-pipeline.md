@@ -146,7 +146,7 @@ It is also possible to build the analysis for multiple filters. In that case, pa
 
 ### Step 4 - Attaching feature extractor & Rebuilding the analysis
 
-The feature extractor extracts features from epoch \(or\) group of epochs. To perform the feature extractor, assign the feature extractor function handle to desired tree level and rebuild the analysis. In below example, we assign psthExtractor to compute and store the Pre-Stimulus Time Histogram \(PSTH\) from a group of epochs.
+The feature extractor extracts features from epoch \(or\) group of epochs. To perform the feature extraction, assign the feature extractor function handle to desired tree level and rebuild the analysis. Below example assigns `psthExtractor `to the stimTime node. 
 
 ```
 analysisFilter.stimTime.featureExtractor = {@(analysis, epochGroup, analysisParameter)...
@@ -164,9 +164,9 @@ buildAnalysis('Example-Analysis',... % Name of the analysis project
                 analysisFilter)      % Type of analysis filter(s)
 ```
 
-As a result, the epoch group will have a new feature named PSTH.
+During the build of analysis, the`psthExtractor `is executed and  Pre-Stimulus Time Histogram \(PSTH\) is saved for each epoch group have stimTime has the parameter. In addition, it will also be percolated up on the higher level of analysis tree for further processing and visualization.
 
-> Kindly make a note of arguments in the feature extractor functio. It is mandatory to have function signature of format  `analysis, epochGroup, analysisParameter.`
+> Please make a note of arguments in the feature extractor function. It is mandatory to have function signature with input parameters`analysis, epochGroup, analysisParameter.`
 >
 > Guidelines for creating a [feature extractor](/building-analysis-pipeline/creating-feature-extractor.md) is explained in next section.
 
