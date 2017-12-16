@@ -10,7 +10,7 @@ Data curator is the Matlab based GUI for parsing, pre-processing and visualizing
 
 The detailed usage of data curator functionality is listed in [1.3.1](/parsing-your-data/data-curator-features.md)
 
-a\) To open the curator user interface, run`openCurator`from Matlab command line. 
+a\) To open the curator user interface, run`openCurator`from Matlab command line.
 
 ![](/assets/curator_view.png)
 
