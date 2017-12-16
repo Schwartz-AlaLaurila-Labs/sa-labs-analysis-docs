@@ -6,13 +6,13 @@
 
 ![](/assets/installation_1.png)
 
-2\) As a next step, open the terminal and clone the git repo using `git clone https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-analysis.git` into `<userpath>\projects\sa-labs-analysis` directory
+2\) As a next step, open the terminal and clone the git repository using `git clone https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-analysis.git` into `<userpath>\projects\sa-labs-analysis` directory
 
 ![](/assets/installation_2.png)
 
-3\) Download and install [ToolboxToolbox](https://github.com/ToolboxHub/ToolboxToolbox) by following the [installation instructions](https://github.com/ToolboxHub/ToolboxToolbox#installation). Restart the MATLAB
+3\) Download and install [ToolboxToolbox](https://github.com/ToolboxHub/ToolboxToolbox) by following the [installation instructions](https://github.com/ToolboxHub/ToolboxToolbox#installation). Restart MATLAB
 
-4\) Run the function `tbUseProject('sa-labs-analysis');` in Matlab command window. It will start installing the data analysis toolbox with required dependency. To verify the installation, check the last few lines of Matlab console. It should look like below, 
+4\) Run the function `tbUseProject('sa-labs-analysis');` in the Matlab command window. It will start installing the data analysis toolbox with the required dependency. To verify the installation, check the last few lines of the Matlab console. It should look as below:
 
 ```
 Checking for "sa-labs-analysis" local hook.
@@ -35,10 +35,9 @@ Checking for "matlab-tree" local hook.
 Checking for "jsonlab_v1.2" local hook.
 Evaluating general-purpose hook for "yamlmatlab": "javaaddpath(fullfile(getfield(what('+yaml'), 'path'), 'external', 'snakeyaml-1.9.jar'))".
   OK
-.Looks good: 18 resolved toolboxes deployed OK.
+.
+Looks good: 18 resolved toolboxes deployed OK.
 ```
 
-> Now that we have analysis toolbox installed let's [parse some data](/parsing-your-data.md).
-
-
+Now that the analysis toolbox is installed, let us [parse some data](/parsing-your-data.md).
 
