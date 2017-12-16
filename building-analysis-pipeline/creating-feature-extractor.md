@@ -31,7 +31,7 @@ meanResponse = mean(epoch); % Mean of epoch
 epochGroup.createFeature('MEAN_RESPONSE', meanResponse);
 ```
 
-As another example to create feature, focus on the `createFeature` in[`psthExtractor.m`](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-util/blob/master/src/main/matlab/%2Bsa_labs/%2Banalysis/%2Bcommon/%2Bextractors/psthExtractor.m). 
+As another example, foucs on the line `epochGroup.createFeature` in[`psthExtractor.m`](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-util/blob/master/src/main/matlab/%2Bsa_labs/%2Banalysis/%2Bcommon/%2Bextractors/psthExtractor.m). 
 
 ```
 function psthExtractor(~, epochGroup, paramter)
