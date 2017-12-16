@@ -10,16 +10,13 @@ The user interface shows the epoch group and the list of features available at e
 
 > To register a new plot in tree browser, package your plot under directory `+sa_labs/+analysis/+treebrowser/+plots`
 
-## a\) Plot Feature
+### a\) Plot Feature
 
-As we already specified the plot parameters for PSTH while creating the feature. It is possible to plot that by just clicking on plotFeature from available plots.  
+`plotFeature `is a default plot for visualizing stored feature. Let's revisit the [`psthExtractor` ](/building-analysis-pipeline/creating-feature-extractor.md)example.  The `createFeature `function specifies the plot parameters required for visualizing PSTH. Hence, It is possible to plot that by selecting `plotFeature `from available plots.  
 ![](/assets/psth_response.png)
 
 #### Plotting multiple features
 
-It is also possible to iterate and plot the feature one by one. For example, the AMP2\_EPOCH will have the recordings based on filter condition. Let's explore the amplifier recording which has stimTime 20 milliseconds.
-
-One can iterate the feature by clicking on the Previous / Next button from the user interface.
-
+It is also possible to iterate and plot the feature one by one. For example, AMP2\_EPOCH will have the epoch response recorded from amplifier channel 'Amp2'. To explore the AMP2\_EPOCH which has 20 milliseconds of stimTime, select it from the tree panel. After that check on Iterate Feature from the user interface. If the selected node has more than one recording then next and previous button will be enabled.   
 ![](/assets/feature_itereator.png)
 
