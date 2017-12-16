@@ -1,6 +1,6 @@
 # 1.3 Parsing your data
 
-Data Curator is a Matlab based GUI developed for parsing, pre-processing and visualizing the raw data. The acquisition system stores the raw data in the [HDF5 format](https://cafarm.gitbooks.io/symphony/content/File-Format.html). Data Curator facilitates parsing of the HDF5 attributes and saves it as a [CellData](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-analysis-core/blob/master/src/main/matlab/%2Bsa_labs/%2Banalysis/%2Bentity/CellData.m) mat file. The CellData file is required by the user interface for the functionality described in [Data Curator features Section](/parsing-your-data/data-curator-features.md)
+Data Curator is a Matlab based GUI developed for parsing, pre-processing and visualizing the raw data. The acquisition system stores the raw data in the [HDF5 format](https://cafarm.gitbooks.io/symphony/content/File-Format.html). Data Curator facilitates parsing of the HDF5 attributes and saves it as a[`CellData`](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-analysis-core/blob/master/src/main/matlab/%2Bsa_labs/%2Banalysis/%2Bentity/CellData.m)mat file. The`CellData`file is required by the user interface for the functionality described in [Data Curator features Section](/parsing-your-data/data-curator-features.md)
 
 a\) To open the curator user interface, run`openCurator`from the Matlab command line.
 
@@ -14,7 +14,7 @@ b\) As a next step, copy the h5 file to be parsed inside `~/data/rawDataFolder` 
 
 ![](/assets/select_h5.png)
 
-c\) After clicking **Open**, the HDF5 data is parsed and the curator window is updated as below,
+c\) After clicking `Open`, the HDF5 data is parsed and the curator window is updated as below,
 
 ![](/assets/curator_with_data.png)
 

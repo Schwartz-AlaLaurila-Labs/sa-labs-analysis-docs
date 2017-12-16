@@ -1,6 +1,6 @@
 ## 1.3.1 Data Curator Features
 
-### a\) Visualize epoch parameter using diary plot
+a\) Visualize epoch parameters using**`diaryPlot`**
 
 Diary plot allows us to visualize the** epoch Time** \(or\) **epoch Number **\(X-axis\)** **Versus **list of epoch parameters **\(Y-axis\).  
 It provides an overview of how epoch parameters changed over the experiment.
