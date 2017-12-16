@@ -11,7 +11,7 @@ It provides an overview of how epoch parameters changed over the experiment.
 
 Spike detection functionality is available in the list of pre-processor along with other registered pre-processor. On click of `SimpleSpikeDetector`, its parameters are displayed in the panel below. Given a simple threshold, it will detect the spikes from the data on the press of execute button.
 
-![](/assets/spike_detection_on_curator.png)Now let's carefully go through the parameter panel and below documentation of function. The parameters documented in  `function simpleSpikeDetector ...`is parsed by the data curator user interface and updated in the above parameter panel. 
+![](/assets/spike_detection_on_curator.png)Now let's carefully go through the parameter panel and below documentation of function. The parameters documented in  `function simpleSpikeDetector ...`is parsed by the data curator user interface and updated in the above parameter panel.
 
 ```
 function simpleSpikeDetector(epochs, parameter)
@@ -32,7 +32,7 @@ Refer https://github.com/SchwartzNU/SymphonyAnalysis/blob/master/GUIs/SpikeDetec
 ....
 ```
 
-Isn't it cool! so kindly write the documentation for the functions in above format[^1] and easily change those parameters from the user interface. 
+> Isn't it cool! so kindly write the documentation for the functions in above format[^1] and easily change those parameters from the user interface.
 
 ### c\) Delete bad epochs
 
@@ -40,7 +40,7 @@ To delete an epoch,  select an epoch from epoch tree. Click on _Tag To Delete _\
 
 ### d\) Add Epoch/Cell Tags
 
-Click on Epoch / Cell from data tree. Then click on add parameter to add the new tag. To remove a parameter click on the desired parameter from the grid and press remove parameter.
+To add a specific tag, click on Epoch / Cell from data tree, then click on add parameter to add the new tag. To remove a parameter click on the desired parameter from the grid and press remove parameter.
 
 ![](/assets/add_keyword.png)
 
@@ -52,6 +52,4 @@ Epochs can be filtered based on the parameter as search criteria. It is possible
 > In the next sections we will see how to [build an analysis pipeline](/building-analysis-pipeline.md).
 
 
-
-[^1]: [YAML](http://yaml.org/)
 
