@@ -11,7 +11,9 @@ It provides an overview of how epoch parameters changed over the experiment.
 
 Spike detection functionality is available in the list of pre-processor along with other registered pre-processor. On click of `SimpleSpikeDetector`, its parameters are displayed in the panel below. Given a simple threshold, it will detect the spikes from the data on the press of execute button.
 
-![](/assets/spike_detection_on_curator.png)Now let's carefully go through the parameter panel and below documentation of function. The parameters documented in  `function simpleSpikeDetector ...`is parsed by the data curator user interface and updated in the above parameter panel.
+![](/assets/spike_detection_on_curator.png)
+
+Now let's carefully go through the parameter panel and documentation of `simpleSpikeDetector `function. The parameters documented in  `function simpleSpikeDetector ...`is parsed by the data curator user interface and updated in the above parameter panel.
 
 ```
 function simpleSpikeDetector(epochs, parameter)
