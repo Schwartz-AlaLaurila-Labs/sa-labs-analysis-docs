@@ -1,8 +1,10 @@
-# 1.4 Building analysis pipeline
+# 1.4 Building an analysis pipeline
 
-It involves 4 steps,
+To build an analysis pipeline requires 4 steps,
 
 ### Step 1- Creating an analysis project
+
+Analysis project helps with organizing the cells for a defined purpose. It has the file names of cell data and its analyzed result.
 
 ```Matlab
 [project, offlineAnalysisManager] = createAnalysisProject(...
@@ -11,9 +13,9 @@ It involves 4 steps,
     'override', true);                   % Would you like to override the project
 ```
 
-The `createAnalysisProject` checks whether it has the required cell data files. If not then it attempts to parse the raw data file \(h5\) and generates the cell data. For existing celldata , it just loads the saved object.
+Based on experiments pattern, the `createAnalysisProject` checks whether it has the already parsed raw data files. If not then it parses the raw data file and generates the cell-specific data from the raw data. Otherwise, it loads the already parsed cell data.
 
-The function returns project which is stored as JSON file with following attributes.
+The function saves a simple text file formatted as JSON[^1] with following attributes.
 
 ```json
 {
@@ -53,14 +55,13 @@ analysisFilter.buildTreeBy = {'displayName', 'intensity', 'stimTime'};
 >
 > ```
 >     '  displayName   '  First level grouping of filter. 
->     '                '  It matches all the epoch which has displayName parameter
->                         and groups them according to its value.
+>     '                '  It matches all the epoch which has parameter name "displayName" 
+>             |           and groups them according to its value.
 >     
 >     '   intensity    '  Second level grouping of filter. 
 >                         It similarly matches the intensity parameter
->                         and groups according to its value
+>             |           and groups according to its value
 >     '                '
->     '       |        '
 >     '    stimTime    '  So on ...
 > ```
 
@@ -80,7 +81,7 @@ analysisFilter.buildTreeBy = {'displayName', 'intensity; probeAxis; textureAngle
 >     '  devices    devices     devices    '
 > ```
 
-* splitValue -  It filters further based on the _epoch parameter values_. Let's assume the epochs with displayName has values LightStep, MovingBar, DriftingGrating. In order to filter the epoch which has _displayName equals Light Step_.  
+* splitValue -  It further filters the epoch based on the _epoch parameter values_. Let's assume the epochs with displayName has values LightStep, MovingBar, DriftingGrating. The below code filters the epoch which has _displayName equals Light Step_.  
 
 ```Matlab
 analysisPreset.displayName.splitValue = {'Light Step'};
@@ -106,9 +107,7 @@ buildAnalysis('Example-Analysis',... % Name of the analysis project
                 analysisFilter)      % Type of analysis filter(s)
 ```
 
-The function `buildAnalysis` generates the analysis tree as per the filter definition and updates the project file with analysis results. It is also possible to build analysis for multiple filters. In that case, passing an array of analysis filter to the`bulidAnalysis` will do the job.
-
-The example project file after analysis will have analysis date and analysis result file name as additional attributes,
+The function `buildAnalysis` generates the analysis tree as per the filter definition and updates the project file with analysis results. The  project file after analysis will have analysis date and analysis result file name as additional attributes,
 
 ```json
 {
@@ -143,9 +142,11 @@ The example project file after analysis will have analysis date and analysis res
 >     '    stimTime==20 (5)          stimTime==500 (6)     '
 > ```
 
+It is also possible to build the analysis for multiple filters. In that case, passing an array of analysis filter to the function`bulidAnalysis` will do the job. 
+
 ### Step 4 - Attaching feature extractor & Rebuilding the analysis
 
-The feature extractor extracts features from epoch \(or\) group of epochs. To perform the feature extractor, assign the feature extractor function handle to desired tree level and rebuild the analysis. In below example, we assign psthExtractor to compute and store the Pre-Stimulus Time Histogram \(PSTH\) from a group of epochs.
+The feature extractor extracts features from epoch \(or\) group of epochs. To perform the feature extraction, assign the feature extractor function handle to desired tree level and rebuild the analysis. Below example assigns `psthExtractor `to the stimTime node. 
 
 ```
 analysisFilter.stimTime.featureExtractor = {@(analysis, epochGroup, analysisParameter)...
@@ -163,11 +164,9 @@ buildAnalysis('Example-Analysis',... % Name of the analysis project
                 analysisFilter)      % Type of analysis filter(s)
 ```
 
-As a result, the epoch group will have a new feature named PSTH.
+During the build of analysis, the`psthExtractor `is executed and  Pre-Stimulus Time Histogram \(PSTH\) is saved for each epoch group have stimTime has the parameter. In addition, it will also be percolated up on the higher level of analysis tree for further processing and visualization.
 
-> Kindly make a note of arguments in the feature extractor functio. It is mandatory to have function signature of format  `analysis, epochGroup, analysisParameter.`
->
-> Guidelines for creating a [feature extractor](/building-analysis-pipeline/creating-feature-extractor.md) is explained in next section.
+> Please make a note of arguments in the feature extractor function. It is mandatory to have featureExtractor function signature with input parameters`analysis, epochGroup, analysisParameter.`Guidelines for creating a [feature extractor](/building-analysis-pipeline/creating-feature-extractor.md) is explained in next section.
 
 
 
