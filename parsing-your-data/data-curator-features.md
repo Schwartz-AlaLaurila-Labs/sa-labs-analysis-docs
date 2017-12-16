@@ -2,19 +2,22 @@
 
 ### a\) Visualize epoch parameter using diary plot
 
-Diary plot allows us to visualize the** epoch Time** \(or\) **epoch Number **\(X-AXIS\)** **Versus **list of epoch parameters **\(Y-AXIS\).  
-It provides an overview of the parameters of epoch changed over the experiment.
+Diary plot allows us to visualize the** epoch Time** \(or\) **epoch Number **\(X-axis\)** **Versus **list of epoch parameters **\(Y-axis\).  
+It provides an overview of how epoch parameters changed over the experiment.
 
 ![](/assets/diary_plot.png)
 
 ### b\) Detect spikes and visualize the epoch with spike details.
 
-Simple spike detector is registered as preprocessor function. Given a simple threshold, it will detect spikes from the data.
+Spike detection functionality is available in the list of pre-processor along with other registered pre-processor. On click of `SimpleSpikeDetector`, its parameters are displayed in the panel below. Given a simple threshold, it will detect the spikes from the data on the press of execute button.
+
+![](/assets/spike_detection_on_curator.png)Now let's carefully go through the parameter panel and below documentation of function. The parameters documented in  `function simpleSpikeDetector ...`is parsed by the data curator user interface and updated in the above parameter panel. 
 
 ```
 function simpleSpikeDetector(epochs, parameter)
 
-% description : Simple spike detection from SchwartzNU Analysis folder; Refer https://github.com/SchwartzNU/SymphonyAnalysis/blob/master/GUIs/SpikeDetectorGUI.m
+% description : Simple spike detection from SchwartzNU Analysis folder; 
+Refer https://github.com/SchwartzNU/SymphonyAnalysis/blob/master/GUIs/SpikeDetectorGUI.m
 % mode:
 %   default : Advanced
 %   description: Type of spike detection, Example- 'Simple threshold' (or) 'Advanced'
@@ -29,7 +32,7 @@ function simpleSpikeDetector(epochs, parameter)
 ....
 ```
 
-### ![](/assets/spike_detection_on_curator.png)
+Isn't it cool! so kindly write the documentation for the functions in above format[^1] and easily change those parameters from the user interface. 
 
 ### c\) Delete bad epochs
 
@@ -49,4 +52,6 @@ Epochs can be filtered based on the parameter as search criteria. It is possible
 > In the next sections we will see how to [build an analysis pipeline](/building-analysis-pipeline.md).
 
 
+
+[^1]: [YAML](http://yaml.org/)
 
