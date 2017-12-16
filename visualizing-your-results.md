@@ -6,7 +6,9 @@ To visualize the analysis tree and features, run `openTreeBrowser.m`from the Mat
 
 ![](/assets/tree_browser.png)
 
-The user interface shows the epoch group and the list of features available at each epoch group. The panel below the tree describes the parameter present in selected node. `epochGroupParameterPlot` is similar to the diary plot in data curator, it plots only the subset of epochs \(i.e epoch group\).
+The user interface shows the epoch group and the list of features available at each epoch group. The panel below the tree describes the parameter present in the selected node. The panel to right has registered plots for tree browser, `epochGroupParameterPlot` is similar to the diary plot in data curator, it plots only the subset of epochs \(i.e epoch group\).
+
+> To register a new plot in tree browser, package your plot under directory `+sa_labs/+analysis/+treebrowser/+plots`
 
 ## a\) Plot Feature
 
