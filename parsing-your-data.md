@@ -1,14 +1,6 @@
 # 1.3 Parsing your data
 
-Data curator is the Matlab based GUI for parsing, pre-processing and visualizing the raw h5 data. It has following functionality,
-
-* Pre-process cell or epoch data
-* Visualize cell summary using diary plot \(or\) epoch
-* Filter and delete epochs.
-* Add / Remove parameter to epoch or cell data
-* Registering your own plots and pre-processors
-
-The detailed usage of data curator functionality is listed in [1.3.1](/parsing-your-data/data-curator-features.md)
+Data Curator is a Matlab based GUI developed for parsing, pre-processing and visualizing the raw data. The raw data from acquired from the acquisition system is stored in the [HDF5 format](https://cafarm.gitbooks.io/symphony/content/File-Format.html). Data Curator facilitates parsing of the HDF5 properties and saves it as a [CellData](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-analysis-core/blob/master/src/main/matlab/%2Bsa_labs/%2Banalysis/%2Bentity/CellData.m) mat file. The CellData object is then used by the GUI for the funcitionality described in [Data Curator features Section](/parsing-your-data/data-curator-features.md)
 
 a\) To open the curator user interface, run`openCurator`from Matlab command line.
 
