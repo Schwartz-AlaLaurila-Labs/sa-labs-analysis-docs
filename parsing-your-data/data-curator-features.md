@@ -46,7 +46,7 @@ To add a specific tag, click on Epoch / Cell from data tree, then click on add p
 
 ### e\) Filtering of epochs
 
-Epochs can be filtered based on the parameter as search criteria. It is possible to list the filtered epochs in data tree by enabling _Show Filtered Epochs_ check box. Below example, filters epoch which has NDF property and Value 3 and the result is displayed in a scrollable text pane.  
+Epochs can be filtered based on the parameter as search criteria. It is possible to list the filtered epochs in data tree by enabling _Show Filtered Epochs_ check box. Below example, filters the epoch which has NDF property and Value 3 and the result is displayed in a scrollable text pane.  
 ![](/assets/filtering.png)
 
 > In the next sections we will see how to [build an analysis pipeline](/building-analysis-pipeline.md).
