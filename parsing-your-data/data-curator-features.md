@@ -2,7 +2,7 @@
 
 a\) Visualize epoch parameters using**`diaryPlot`**
 
-**`diaryPlot`**visualizes the** epoch Time** \(or\) **epoch Number **\(X-axis\)** **Versus **list of epoch parameters **\(Y-axis\).  
+`diaryPlot`visualizes the** epoch Time** \(or\) **epoch Number **\(X-axis\)** **Versus **list of epoch parameters **\(Y-axis\).  
 It provides an overview of how epoch parameters changed over the experiment.
 
 ![](/assets/diary_plot.png)
