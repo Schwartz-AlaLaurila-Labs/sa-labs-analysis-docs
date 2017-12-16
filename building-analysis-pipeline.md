@@ -4,7 +4,7 @@ To build an analysis pipeline requires 4 steps,
 
 ### Step 1- Creating an analysis project
 
-Analysis project helps with organizing the cells for a defined purpose. It has the file names of cell data and its analyzed result. 
+Analysis project helps with organizing the cells for a defined purpose. It has the file names of cell data and its analyzed result.
 
 ```Matlab
 [project, offlineAnalysisManager] = createAnalysisProject(...
@@ -55,14 +55,13 @@ analysisFilter.buildTreeBy = {'displayName', 'intensity', 'stimTime'};
 >
 > ```
 >     '  displayName   '  First level grouping of filter. 
->     '                '  It matches all the epoch which has displayName parameter
->                         and groups them according to its value.
+>     '                '  It matches all the epoch which has parameter name "displayName" 
+>             |           and groups them according to its value.
 >     
 >     '   intensity    '  Second level grouping of filter. 
 >                         It similarly matches the intensity parameter
->                         and groups according to its value
+>             |           and groups according to its value
 >     '                '
->     '       |        '
 >     '    stimTime    '  So on ...
 > ```
 
@@ -82,7 +81,7 @@ analysisFilter.buildTreeBy = {'displayName', 'intensity; probeAxis; textureAngle
 >     '  devices    devices     devices    '
 > ```
 
-* splitValue -  It filters further based on the _epoch parameter values_. Let's assume the epochs with displayName has values LightStep, MovingBar, DriftingGrating. In order to filter the epoch which has _displayName equals Light Step_.  
+* splitValue -  It further filters the epoch based on the _epoch parameter values_. Let's assume the epochs with displayName has values LightStep, MovingBar, DriftingGrating. The below code filters the epoch which has _displayName equals Light Step_.  
 
 ```Matlab
 analysisPreset.displayName.splitValue = {'Light Step'};
@@ -172,6 +171,4 @@ As a result, the epoch group will have a new feature named PSTH.
 > Guidelines for creating a [feature extractor](/building-analysis-pipeline/creating-feature-extractor.md) is explained in next section.
 
 
-
-[^1]: [JSON](https://www.json.org/)
 
