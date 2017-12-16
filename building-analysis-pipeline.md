@@ -13,7 +13,7 @@ Analysis project helps with organizing the cells for a defined purpose. It has t
     'override', true);                   % Would you like to override the project
 ```
 
-Based on experiments pattern, the `createAnalysisProject` checks whether it has the already parsed raw data files. If not then it parses the raw data file and generates the cell specific data from the raw data. Otherwise , it loads the already parsed cell data.
+Based on experiments pattern, the `createAnalysisProject` checks whether it has the already parsed raw data files. If not then it parses the raw data file and generates the cell-specific data from the raw data. Otherwise, it loads the already parsed cell data.
 
 The function saves a simple text file formatted as JSON[^1] with following attributes.
 
