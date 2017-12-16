@@ -14,7 +14,7 @@ b\) As a next step, copy the h5 file to be parsed inside `~/data/rawDataFolder` 
 
 ![](/assets/select_h5.png)
 
-c\) After clicking **Open**, the h5 data is parsed and the curator window is updated as below,
+c\) After clicking **Open**, the HDF5 data is parsed and the curator window is updated as below,
 
 ![](/assets/curator_with_data.png)
 
