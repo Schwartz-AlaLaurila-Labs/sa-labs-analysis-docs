@@ -67,7 +67,7 @@ analysisFilter.buildTreeBy = {'displayName', 'intensity', 'stimTime'};
 >     '    stimTime    '  So on ...
 > ```
 
-It is also possible to group the epoch with different parameters at same level,
+It is also possible to group the epoch with different parameters at the same level,
 
 ```
 analysisFilter.buildTreeBy = {'displayName', 'intensity; probeAxis; textureAngle', 'devices'};
