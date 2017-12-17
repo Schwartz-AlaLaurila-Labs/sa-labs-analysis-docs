@@ -21,5 +21,5 @@ Let us focus on the leaf of tree browser, the PSTH feature is computed and store
 
 On selecting the node `intensity == 1` and checking the `Iterate Features`, from Tree Browser. It is possible to iterate through two PSTH plot using `Next`and `Previous`button
 
-![](/assets/feature_iteration)
+![](/assets/tree_Browser_iteration.png)
 
