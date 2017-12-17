@@ -151,7 +151,7 @@ It is also possible to build the analysis for multiple filters. This is achieved
 
 ### Step 4 - Attaching feature extractor & Rebuilding the analysis
 
-The `featureExtractor` has the [function handle](https://in.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html) to process group of epochs. To perform the feature extraction, assign the feature extractor function handle to the desired level in the analysis tree and rebuild the analysis. The example below assigns `psthExtractor `to the lowest node \(`stimTime`\)  in the example analysis tree built for the `LightStep `Analysis. This example feature extractor generates a peri-stimulus time histogram of the neuron’s responses in the selected epoch group.
+The `featureExtractor` has the [function handle](https://in.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html) to process group of epochs. To perform the feature extraction, assign the feature extractor function handle to the desired level in the analysis tree and rebuild the analysis. The example below assigns `psthExtractor `to the lowest node \(`stimTime`\)  in the example analysis tree built for the `LightStep`Analysis. `psthExtractor ` generates a peri-stimulus time histogram of the neuron’s responses in the selected epoch group.
 
 ```
 analysisFilter.stimTime.featureExtractor = {@(analysis, epochGroup, analysisParameter)...
@@ -173,7 +173,7 @@ When building the analysis, the `psthExtractor`is executed and a Peri-Stimulus T
 
 **Advantages of having `featureExtractorhandle `in filter definition**: As the filter definition, source code and data are loosely coupled, It is possible to execute the analysis on any computer node which has access to data and get the analysis results synchronized. Hence, the data-intensive analysis can be performed in distributed \(or\) remote computer node. 
 
-Please be aware of the arguments required in the feature extractor function. It is mandatory to include the input parameters: `analysis, epochGroup, analysisParameter`. Guidelines for [creating a feature extractor](/building-analysis-pipeline/creating-feature-extractor.md) are explained in the next section.
+> Please be aware of the arguments required in the feature extractor function. It is mandatory to include the input parameters: `analysis, epochGroup, analysisParameter`. Guidelines for [creating a feature extractor](/building-analysis-pipeline/creating-feature-extractor.md) are explained in the next section.
 
 
 
