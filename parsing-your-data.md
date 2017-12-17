@@ -10,7 +10,7 @@ Before continuing, let us review the directory structure required for the analys
 
 ![](/assets/project_heirarchy.png)
 
-b\) As a next step, copy the HDF5 file to be parsed inside `~/data/rawDataFolder` , then click on the `...` button from the curator interface & select the HDF5 file to be parsed.
+b\) As a next step, copy the HDF5 file to be parsed inside `~/data/rawDataFolder` , then click on the `...` button in the curator interface and select the HDF5 file to be parsed.
 
 ![](/assets/select_h5.png)
 
