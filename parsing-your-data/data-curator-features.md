@@ -40,7 +40,7 @@ end
 
 #### c\) Delete unwanted epochs
 
-To delete an epoch that should not be included in the data analysis, select the epoch from epoch tree and click on `Tag To Delete (or) Ctrl +D` . To undo the tagging, use `Undo Delete Tag (or) Ctr + Z`. Once you are sure about the tagged epochs, Click on Delete Tagged. The epochs will now be excluded from the cell data, which is used for further analysis, but still remain in the raw data HDF5 file.
+To delete an epoch that should not be included in the data analysis, select the epoch from epoch tree and click on `Tag To Delete (or) Ctrl +D` . To undo the tagging, use `Undo Delete Tag (or) Ctr + Z`. Once you are sure about the tagged epochs, Click on `Delete Tagged`. The epochs will now be excluded from the cell data, which is used for further analysis, but still remain in the raw data HDF5 file.
 
 #### d\) Add Epoch/Cell Tags
 
