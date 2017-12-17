@@ -38,9 +38,9 @@ end
 
 > Isn't it neat! So kindly write the documentation for your custom written pre-processor functions in the above format[^1] and easily change those parameters from the user interface.
 
-### c\) Delete bad epochs
+#### c\) Delete unwanted epochs
 
-To delete an epoch,  select an epoch from epoch tree. Click on _Tag To Delete _\(`ctrl+d`\) and to undo the tagging use _Undo Delete Tag_\(`ctr+z`\) . Once you are sure about the tagged epochs, Click on _Delete Tagged_.
+To delete an epoch that should not be included in the data analysis, select the epoch from epoch tree and click on `Tag To Delete (or) Ctrl +D` . To undo the tagging, use `Undo Delete Tag (or) Ctr + Z`. Once you are sure about the tagged epochs, Click on Delete Tagged. The epochs will now be excluded from the `CellData`, which is used for further analysis, but still remain in the raw data HDF5 file.
 
 ### d\) Add Epoch/Cell Tags
 
