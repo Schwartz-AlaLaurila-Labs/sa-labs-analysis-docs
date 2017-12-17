@@ -1,5 +1,8 @@
 # 1.2 Getting Started
 
+> Requirements - Matlab 2016a+, Windows 7/10 \(or\) OS-X \(or\) ubuntu 16+.  
+>  [Continuous Integration](https://www.thoughtworks.com/continuous-integration) \(CI\) using [Jenkins ![](https://build.nbe.aalto.fi/buildStatus/icon?job=validateSALabsAnalysisCore)](https://build.nbe.aalto.fi/job/validateSALabsAnalysisCore/)
+
 ## Installation
 
 1\) Open Matlab and go to its home directory using `cd(userpath());` Create a projects folder in the home directory using `mkdir('projects')`
