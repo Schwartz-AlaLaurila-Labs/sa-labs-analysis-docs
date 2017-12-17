@@ -36,7 +36,7 @@ function simpleSpikeDetector(epochs, parameter)
 end
 ```
 
-> Isn't it neat! So kindly write the documentation for your custom written pre-processor functions in the above format[^1] and easily change those parameters from the user interface.
+> Isn't it neat! So kindly write the documentation for your custom written pre-processor functions in the above [format](http://yaml.org/) and easily change those parameters from the user interface.
 
 #### c\) Delete unwanted epochs
 
@@ -50,7 +50,7 @@ To add a specific tag to an epoch or cell, click on Epoch / Cell from the data t
 
 #### e\) Filtering of epochs
 
-Epochs can be filtered based on the parameters as search criteria. It is possible to list the filtered epochs in the data tree by enabling `Show Filtered Epochs`check box. In the example below, epochs are filtered by the `Property NDF `\(Neutral Density Filter wheel position\) with `value : 3. `The result is displayed in a scrollable text panel. 
+Epochs can be filtered based on the parameters as search criteria. It is possible to list the filtered epochs in the data tree by enabling `Show Filtered Epochs`check box. In the example below, epochs are filtered by the `Property NDF`\(Neutral Density Filter wheel position\) with `value : 3.`The result is displayed in a scrollable text panel.
 
 ![](/assets/filtering.png)
 
