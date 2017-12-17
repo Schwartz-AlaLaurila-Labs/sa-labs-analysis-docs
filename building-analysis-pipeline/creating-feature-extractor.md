@@ -1,21 +1,30 @@
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
 ## 1.4.1 Creating feature extractor
 
 Here are some basic rules for creating a simple extractor:
 
 1. Create a new extractor for any new feature you want to compute.
-2. The feature extractor must have the following 3 input parameters, 
-   1. `analysis` is an instance of the [`Analysis.m`](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-analysis-core/blob/master/src/main/matlab/+sa_labs/+analysis/+core/Analysis.m) class. It is not regularly used yet in current feature extractor functions; however, it is likely required for future expansion of the analysis functionality.
-   2. `epochGroup` is an instance of the [`EpochGroup.m`](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-analysis-core/blob/master/src/main/matlab/+sa_labs/+analysis/+entity/EpochGroup.m) class. It defines a group of epochs and facilitates adding new features to an existing epochGroup. 
-   3. `analysisParameter`is a Matlab structure containing the parameters which are used in the feature extractor. 
+2. The feature extractor must have the following 3 input parameters,   
+   1. `analysis` is an instance of the [`Analysis.m`](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-analysis-core/blob/master/src/main/matlab/+sa_labs/+analysis/+core/Analysis.m) class. It is not regularly used yet in current feature extractor functions; however, it is likely required for future expansion of the analysis functionality.  
+   2. `epochGroup` is an instance of the [`EpochGroup.m`](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-analysis-core/blob/master/src/main/matlab/+sa_labs/+analysis/+entity/EpochGroup.m) class. It defines a group of epochs and facilitates adding new features to an existing epochGroup.   
+   3. `analysisParameter`is a Matlab structure containing the parameters which are used in the feature extractor.
 
    > When creating your own feature extractor, always make sure to add comments that describe the role of each analysis parameter and its default value.
-3.  Finally, consider the visualization of the feature. Ideally specify plotting parameters, such as the x-axis, the axis labels and the title of the plot in the feature extractor function. 
+
+3. Finally, consider the visualization of the feature. Ideally specify plotting parameters, such as the x-axis, the axis labels and the title of the plot in the feature extractor function. 
 
 With these guidelines, let us create a `simpleExtractor`function which computes the average response of the neuron in each epoch and adds it to the `epochGroup`instance.
-
-
-
-
 
 ```
 function simpleExtractor(analysis, epochGroup, paramter)
