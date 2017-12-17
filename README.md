@@ -8,10 +8,7 @@ In this special assignment, I developed the SA-Labs-Analysis toolbox by primaril
 
 As a way of promoting open science, the [source code](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-analysis) for the SA-Labs-Analysis toolbox, dependent libraries, and [usage documentation](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-analysis-docs) is made open in Github and licensed under MIT. The user interface design is inspired by [Schwartz Lab Symphony Analysis](https://github.com/SchwartzNU/SymphonyAnalysis), the source code architecture is inspired by [Rieke-Lab symphony-das](https://cafarm.gitbooks.io/symphony/content/Architecture.html) and the software build life cycle is inspired by [BrainardLab MatlabJobSupport](https://github.com/BrainardLab/MatlabJobSupport)
 
-> Requirements - Matlab 2016a+, Windows 7/10 \(or\) OS-X \(or\) ubuntu 16+.  
->  [Continuous Integration](https://www.thoughtworks.com/continuous-integration) \(CI\) using [Jenkins ![](https://build.nbe.aalto.fi/buildStatus/icon?job=validateSALabsAnalysisCore)](https://build.nbe.aalto.fi/job/validateSALabsAnalysisCore/)
->
-> Copyright \(c\) 2017 Schwartz-AlaLaurila-Labs
+
 
 
 
