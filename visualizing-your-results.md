@@ -13,13 +13,13 @@ To register a new plotting function for the tree browser, package your function 
 
 ### Plot Feature
 
-`plotFeature`is a default plotting function for visualizing stored features. Let us revisit the `psthExtractor`example: the `createFeature`function specifies the parameters required for plotting the extracted PSTH data. Hence, it is possible to plot this data by selecting `plotFeature `from the list of available plots.
+`plotFeature`is a default plotting function for visualizing stored features. Let us revisit the `psthExtractor`example: the `createFeature`function specifies the parameters required for plotting the extracted PSTH data. Hence, it is possible to plot this data by selecting `plotFeature`from the list of available plots.
 
 ![](/assets/psth_response.png)
 
-Let us focus on the leafs of the tree browser, where the PSTH feature is computed and stored for different epoch groups. First, for the node`stimTime = 20` , and second for the node`stimTime = 500.`As explained in the Step 3 - Building the analysis, the computed feature is percolated to the upper nodes. Hence,  the node`intensity == 1`will have access to PSTH of both the groups.
+Let us focus on the leafs of the Tree Browser, where the PSTH feature is computed and stored for different epoch groups. First, for the node`stimTime = 20` , and second for the node`stimTime = 500.`As explained in the [Step 3 - Building the analysis](/building-analysis-pipeline.md), the computed feature is percolated to the upper nodes. Hence,  the node`intensity == 1`will have access to PSTH of both the groups.
 
-On selecting the node `intensity == 1` and checking the `Iterate Features`, from Tree Browser. It is possible to iterate through two PSTH plot using `Next`and `Previous`button
+On selecting the node `intensity == 1` and checking the `Iterate Features`, from the Tree Browser, It is possible to iterate through two PSTH plot using the `Next`and `Previous`buttons.
 
 ![](/assets/tree_Browser_iteration.png)
 
