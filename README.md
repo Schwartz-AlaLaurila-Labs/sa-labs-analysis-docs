@@ -1,6 +1,6 @@
 # 1.1 Introduction
 
-The scientific data lifecycle follows, acquiring the experimental data, analyzing it and visualizing the results. However,  to reproduce the life cycle steps with minimal efforts requires a sophisticated graphical user interface, disciplined data management, modular code and a simplified usage documentation.
+The research data lifecycle follows, acquiring the experimental data, analyzing it and visualizing the results. However,  to reproduce the life cycle steps with minimal efforts requires a sophisticated graphical user interface, disciplined data management, modular code and a simplified usage documentation.
 
 SA-Labs-Analysis is the data analysis toolbox for multi-electrode patch clamp recordings. It provides a graphical user interface to pre-process, analyze, and visualize the acquired data. The raw data for the analysis is acquired using [symphony-das](http://symphony-das.github.io/) - a Matlab based data acquisition system for electrophysiologists. Furthermore, the analysis toolbox is designed to support both streaming and post-acquisition analysis by using shared libraries and data structure.
 
