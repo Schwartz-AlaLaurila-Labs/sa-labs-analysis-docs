@@ -12,7 +12,7 @@ The pre-processor functions include a variety of pre-analysis that prepares the 
 
 ![](/assets/spike_detection.png)
 
-Now let's carefully go through the parameter panel and documentation of `simpleSpikeDetector`function. The parameters documented in  `function simpleSpikeDetector ...`is parsed by the data curator user interface and updated in the above parameter panel.
+Similar pre-processor functions can be custom written and added to the pre-processor list. Let us carefully go through the parameter panel and the documentation of the `simpleSpikeDetector`function to understand how pre-processor functions should be documented and structured to function within the Data Curator Framework. The parameters documented in function `simpleSpikeDetector`are parsed by the Data Curator user interface and updated in the parameter panel.
 
 ```
 function simpleSpikeDetector(epochs, parameter)
