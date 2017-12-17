@@ -42,18 +42,18 @@ end
 
 To delete an epoch that should not be included in the data analysis, select the epoch from epoch tree and click on `Tag To Delete (or) Ctrl +D` . To undo the tagging, use `Undo Delete Tag (or) Ctr + Z`. Once you are sure about the tagged epochs, Click on Delete Tagged. The epochs will now be excluded from the cell data, which is used for further analysis, but still remain in the raw data HDF5 file.
 
-### d\) Add Epoch/Cell Tags
+#### d\) Add Epoch/Cell Tags
 
-To add a specific tag, click on Epoch / Cell from data tree, then click on add parameter to add the new tag. To remove a parameter click on the desired parameter from the grid and press remove parameter.
+To add a specific tag to an epoch or cell, click on Epoch / Cell from the data tree, then click on `Add Parameter` and specify the tag you want to add. To remove a parameter, click on the desired parameter from the grid and press `Remove Parameter`.
 
 ![](/assets/add_keyword.png)
 
-### e\) Filtering of epochs
+#### e\) Filtering of epochs
 
 Epochs can be filtered based on the parameter as search criteria. It is possible to list the filtered epochs in data tree by enabling _Show Filtered Epochs_ check box. Below example, filters the epoch which has NDF property and Value 3 and the result is displayed in a scrollable text pane.  
 ![](/assets/filtering.png)
 
-> In the next sections we will see how to [build an analysis pipeline](/building-analysis-pipeline.md).
+In the next section, we will see how to [build an analysis pipeline](/building-analysis-pipeline.md).
 
 
 
