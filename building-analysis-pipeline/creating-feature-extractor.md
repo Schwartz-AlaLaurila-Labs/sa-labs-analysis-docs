@@ -1,31 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 
-
-## 
-
-## 
-
-## 
-
-## 
-
 ## 1.4.1 Creating feature extractor
 
 Here are some basic rules for creating a simple extractor:
