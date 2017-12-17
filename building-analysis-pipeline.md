@@ -93,9 +93,9 @@ analysisPreset.displayName.splitValue = {'Light Step'};
 
 It is also possible to attach a function handle to `buildTree `and `splitValues`.
 
-* `featureExtractor `- Attaches a function handle to filtered epoch group for further evaluation, more on the feature extractor will be explained in step4. 
+* `featureExtractor `- Attaches a function handle to the filtered epoch group for further evaluation \(the feature extractor will be explained in step4\). 
 
-In summary, the complete filter definition to build a light step analysis is as follows,
+In summary, the complete filter definition for the example`LightStep`analysis is as follows,
 
 ```Matlab
 analysisFilter = struct()
