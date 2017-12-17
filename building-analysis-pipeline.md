@@ -85,7 +85,7 @@ analysisFilter.buildTreeBy = {'displayName', 'intensity; probeAxis; textureAngle
 
 * `splitValue`-  It further filters the epoch based on the epoch parameter values. Let us assume the epochs with `displayName`have values `LightStep, MovingBar, DriftingGrating`. The below code filters the epoch which have`displayName == Light Step`
 
-The code below follows our example of the `LightStepAnalysis `and filters the epochs which have `displayName == Light Step`– the epochs were a simple flash of light was presented to the cells.
+The code below follows our example of the `LightStepAnalysis`and filters the epochs which have `displayName == Light Step`– the epochs were a simple flash of light was presented to the cells.
 
 ```Matlab
 analysisPreset.displayName.splitValue = {'Light Step'};
@@ -104,7 +104,7 @@ analysisFilter.buildTreeBy = {'displayName', 'intensity', 'stimTime'};
 analysisPreset.displayName.splitValue = {'Light Step'};
 ```
 
-#### Step 3 - Building the analysis
+#### Step 3 - Building the analysis {#building-analysis}
 
 ```Matlab
 buildAnalysis('Example-Analysis',... % Name of the analysis project
@@ -174,5 +174,5 @@ When building the analysis, the `psthExtractor`is executed and a PSTH is saved f
 
 > Please be aware of the arguments required in the feature extractor function. It is mandatory to include the input parameters: `analysis, epochGroup, analysisParameter`. Guidelines for [creating a feature extractor](/building-analysis-pipeline/creating-feature-extractor.md) are explained in the next section.
 
-There are advantages of including the `featureExtractor `handle in the filter definition: when the filter definition, source code, and data are coupled, it is possible to execute the analysis and synchronize the results on any computer which has access to the data. Hence, the data-intensive analysis can be performed in distributed \(or\) a remote computer.
+There are advantages of including the `featureExtractor`handle in the filter definition: when the filter definition, source code, and data are coupled, it is possible to execute the analysis and synchronize the results on any computer which has access to the data. Hence, the data-intensive analysis can be performed in distributed \(or\) a remote computer.
 
