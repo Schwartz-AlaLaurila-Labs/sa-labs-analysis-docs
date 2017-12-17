@@ -148,11 +148,11 @@ The function `buildAnalysis`generates the analysis tree as defined by the epoch 
 
 It is also possible to build the analysis for multiple filters. This is achieved by passing an array of analysis filter to the function `bulidAnalysis`.
 
-#### Step 4 - Attaching feature extractor & Rebuilding the analysis {#attaching-feature-extractor}
+#### Step 4 - Attaching feature extractors & Rebuilding the analysis {#attaching-feature-extractor}
 
-The `featureExtractor` has the [function handle](https://in.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html) to process group of epochs. To perform the feature extraction, assign the feature extractor function handle to the desired level in the analysis tree and rebuild the analysis.
+The `featureExtractor` contains the [function handle](https://in.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html) to process a group of epochs. To perform the feature extraction, assign the feature extractor function handle to the desired level in the analysis tree and rebuild the analysis.
 
-The example below assigns `psthExtractor`to the lowest node \(`stimTime`\)  in the example analysis tree built for the `LightStep`Analysis. `psthExtractor` generates a peri-stimulus time histogram of the neuron’s responses in the selected epoch group.
+The example below assigns `psthExtractor`to the lowest node \(`stimTime`\)  in the example analysis tree built for the `LightStepAnalysis`. The `psthExtractor` generates a peri-stimulus time histogram \(PSTH\) of the neuron’s responses in the selected epoch group.
 
 ```
 analysisFilter.stimTime.featureExtractor = {@(analysis, epochGroup, analysisParameter)...
@@ -170,9 +170,9 @@ buildAnalysis('Example-Analysis',... % Name of the analysis project
                 analysisFilter)      % Type of analysis filter(s)
 ```
 
-When building the analysis, the `psthExtractor`is executed and a Peri-Stimulus Time Histogram \(PSTH\) is saved for each epoch group that has a unique `stimTime`value as a parameter. In addition, the result is also be percolated up to the higher levels of the analysis tree for further processing and visualization.
+When building the analysis, the `psthExtractor`is executed and a PSTH is saved for each epoch group that has a unique `stimTime`value as a parameter. In addition, the result is also percolated up to the higher levels of the analysis tree for further processing and visualization.
 
 > Please be aware of the arguments required in the feature extractor function. It is mandatory to include the input parameters: `analysis, epochGroup, analysisParameter`. Guidelines for [creating a feature extractor](/building-analysis-pipeline/creating-feature-extractor.md) are explained in the next section.
 
-Advantages of having `featureExtractor` function handle in filter definition: As the filter definition, source code and data are loosely coupled, It is possible to execute the analysis on any computer node which has access to data and get the analysis results synchronized. Hence, the data-intensive analysis can be performed in distributed \(or\) remote computer node.
+There are advantages of including the `featureExtractor `handle in the filter definition: when the filter definition, source code, and data are coupled, it is possible to execute the analysis and synchronize the results on any computer which has access to the data. Hence, the data-intensive analysis can be performed in distributed \(or\) a remote computer.
 
