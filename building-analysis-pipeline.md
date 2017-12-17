@@ -97,7 +97,7 @@ It is also possible to attach a function handle to `buildTree`and `splitValues`.
 
 * `featureExtractor`- Attaches a function handle to the filtered epoch group for further evaluation \(the feature extractor will be explained in step4\). 
 
-In summary, the complete filter definition for the example`LightStep`analysis is as follows,
+In summary, the complete filter definition for the example `LightStep`analysis is as follows,
 
 ```Matlab
 analysisFilter = struct()
@@ -113,7 +113,7 @@ buildAnalysis('Example-Analysis',... % Name of the analysis project
                 analysisFilter)      % Type of analysis filter(s)
 ```
 
-The function `buildAnalysis` generates the analysis tree as per the filter definition and updates the project file with analysis results. The  project file after analysis will have analysis date and analysis result file name as additional attributes,
+The function `buildAnalysis`generates the analysis tree as defined by the epoch filter, and updates the project file with the analysis results. The project file then stores the analysis date and analysis result file name as additional attributes,
 
 ```json
 {
@@ -148,7 +148,7 @@ The function `buildAnalysis` generates the analysis tree as per the filter defin
 >     '    stimTime==20 (5)          stimTime==500 (6)     '
 > ```
 
-It is also possible to build the analysis for multiple filters. In that case, passing an array of analysis filter to the function`bulidAnalysis` will do the job.
+It is also possible to build the analysis for multiple filters. This is achieved by passing an array of analysis filter to the function `bulidAnalysis`. 
 
 ### Step 4 - Attaching feature extractor & Rebuilding the analysis
 
