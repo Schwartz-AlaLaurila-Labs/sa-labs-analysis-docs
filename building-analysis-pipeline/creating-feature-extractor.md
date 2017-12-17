@@ -1,17 +1,21 @@
 ## 1.4.1 Creating feature extractor
 
-Let's focus on creating a simple extractor. As a rule of thumb
+Here are some basic rules for creating a simple extractor:
 
-1. Create a new extractor for any new feature you compute.
-2. Feature extractor should have 3 input parameters, 
-   1. analysis - It is an instance of the `Analysis.m` class. It is seldom used in feature extractor, however, it is good to have it for future use.
-   2. epochGroup - As the name suggests, it is just a group of epochs and facilitates adding new features to the epochGroup. 
-   3. analysisParameter - A simple Matlab structure contains the parameters used in feature extractor. 
+1. Create a new extractor for any new feature you want to compute.
+2. The feature extractor must have the following 3 input parameters, 
+   1. `analysis` is an instance of the [`Analysis.m`](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-analysis-core/blob/master/src/main/matlab/+sa_labs/+analysis/+core/Analysis.m) class. It is not regularly used yet in current feature extractor functions; however, it is likely required for future expansion of the analysis functionality.
+   2. `epochGroup` is an instance of the [`EpochGroup.m`](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-analysis-core/blob/master/src/main/matlab/+sa_labs/+analysis/+entity/EpochGroup.m) class. It defines a group of epochs and facilitates adding new features to an existing epochGroup. 
+   3. `analysisParameter`is a Matlab structure containing the parameters which are used in the feature extractor. 
 
-   > Always add comments describing the role of analysis parameter and its default value.
-3. As the last rule, think about visualizing the feature. If its a simple line plot then specify the x-axis, x label, y label and title of  plot while adding the feature. 
+   > When creating your own feature extractor, always make sure to add comments that describe the role of each analysis parameter and its default value.
+3.  Finally, consider the visualization of the feature. Ideally specify plotting parameters, such as the x-axis, the axis labels and the title of the plot in the feature extractor function. 
 
-Now that we know our rules, let's create a `simpleExtractor`function which computes the mean of epoch and add it to the epochGroup
+With these guidelines, let us create a `simpleExtractor`function which computes the average response of the neuron in each epoch and adds it to the `epochGroup`instance.
+
+
+
+
 
 ```
 function simpleExtractor(analysis, epochGroup, paramter)
@@ -21,7 +25,7 @@ function simpleExtractor(analysis, epochGroup, paramter)
 end
 ```
 
-As a next step, compute the mean response of epoch and save it back to the epochGroup.
+Then, compute the average response of each epoch and save it to the `epochGroup`instance
 
 ```
 epochCell = epochGroup.getFeatureData('EPOCH'); % 
@@ -31,7 +35,7 @@ meanResponse = mean(epoch); % Mean of epoch
 epochGroup.createFeature('MEAN_RESPONSE', meanResponse);
 ```
 
-As another example, foucs on the line `epochGroup.createFeature` in[`psthExtractor.m`](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-util/blob/master/src/main/matlab/%2Bsa_labs/%2Banalysis/%2Bcommon/%2Bextractors/psthExtractor.m). 
+The second example is the[`psthExtractor.m`](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-util/blob/master/src/main/matlab/%2Bsa_labs/%2Banalysis/%2Bcommon/%2Bextractors/psthExtractor.m) from our`LightStep`Analysis, explained in previous section. Let us focus on the line `epochGroup.createFeature.`
 
 ```
 function psthExtractor(~, epochGroup, paramter)
@@ -60,5 +64,5 @@ function psthExtractor(~, epochGroup, paramter)
 end
 ```
 
-The PSTH feature has all the required attributes for the plot and is used to visualize the PSTH. This will be explained in next section -  [visualizing your results](/visualizing-your-results.md). 
+The PSTH feature contains all the required attributes to plot the results as a simple line plot, and can, therefore, be easily used to visualize the PSTH. This will be explained in next section -  [visualizing your results](/visualizing-your-results.md).
 
