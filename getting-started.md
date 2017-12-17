@@ -15,7 +15,7 @@
 
 3\) Download and install [ToolboxToolbox](https://github.com/ToolboxHub/ToolboxToolbox) by following the [installation instructions](https://github.com/ToolboxHub/ToolboxToolbox#installation). Restart MATLAB
 
-4\) Run the function `tbUseProject('sa-labs-analysis');` in the Matlab command window. It will start installing the data analysis toolbox with the required dependency. To verify the installation, check the last few lines of the Matlab console. It should look as below:
+4\) Run the function `tbUseProject('sa-labs-analysis');` in the Matlab command window. It will start installing the data analysis toolbox with the required dependencies. To verify the installation, check the last few lines of the Matlab console. It should look as below:
 
 ```
 Checking for "sa-labs-analysis" local hook.
