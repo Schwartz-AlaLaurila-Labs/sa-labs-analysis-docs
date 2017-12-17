@@ -175,5 +175,5 @@ When building the analysis, the `psthExtractor`is executed and a Peri-Stimulus T
 
 > Please be aware of the arguments required in the feature extractor function. It is mandatory to include the input parameters: `analysis, epochGroup, analysisParameter`. Guidelines for [creating a feature extractor](/building-analysis-pipeline/creating-feature-extractor.md) are explained in the next section.
 
-**Advantages of having **`featureExtractorhandle`**in filter definition**: As the filter definition, source code and data are loosely coupled, It is possible to execute the analysis on any computer node which has access to data and get the analysis results synchronized. Hence, the data-intensive analysis can be performed in distributed \(or\) remote computer node.
+Advantages of having `featureExtractorhandle`in filter definition: As the filter definition, source code and data are loosely coupled, It is possible to execute the analysis on any computer node which has access to data and get the analysis results synchronized. Hence, the data-intensive analysis can be performed in distributed \(or\) remote computer node.
 
