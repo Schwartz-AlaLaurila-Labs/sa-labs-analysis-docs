@@ -6,8 +6,7 @@ Below are the steps involved in building an analysis pipeline,
 
 #### Step 1- Creating an analysis project
 
-The analysis project helps with organizing the `CellData`for a defined purpose. It stores the file names of the cell data and the results of the analysis.  
- The`createAnalysisProject`function requires, a unique name for the project,  and a list of experiment date as mandatory input parameters. The experiment date can be of [Matlab regular expression](https://in.mathworks.com/help/matlab/ref/regexp.html) pattern. Based on experiments pattern, the `createAnalysisProject`checks whether`CellData`exists for this project \(i.e. the raw data has already been parsed previously\). If not, then it parses the raw data file and generates the cell-specific data from the raw data. Otherwise, it loads the already parsed cell data.
+The analysis project helps with organizing the `CellData`for a defined purpose. It stores the file names of the cell data and the results of the analysis. The`createAnalysisProject`function requires, a unique name for the project,  and a list of experiment date as mandatory input parameters. The experiment date can be of [Matlab regular expression](https://in.mathworks.com/help/matlab/ref/regexp.html) pattern. Based on experiments pattern, the `createAnalysisProject`checks whether`CellData`exists for this project \(i.e. the raw data has already been parsed previously\). If not, then it parses the raw data file and generates the cell-specific data from the raw data. Otherwise, it loads the already parsed cell data.
 
 ```Matlab
 [project, offlineAnalysisManager] = createAnalysisProject(...
@@ -152,7 +151,7 @@ It is also possible to build the analysis for multiple filters. This is achieved
 
 ### Step 4 - Attaching feature extractor & Rebuilding the analysis
 
-The feature extractor extracts features from epoch \(or\) group of epochs. To perform the feature extraction, assign the feature extractor function handle to desired tree level and rebuild the analysis. Below example assigns `psthExtractor`to the stimTime node.
+The `featureExtractor` has the [function handle](https://in.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html) to process group of epochs. To perform the feature extraction, assign the feature extractor function handle to the desired level in the analysis tree and rebuild the analysis. The example below assigns `psthExtractor `to the lowest node \(`stimTime`\)  in the example analysis tree built for the `LightStep `Analysis. This example feature extractor generates a peri-stimulus time histogram of the neuron’s responses in the selected epoch group.
 
 ```
 analysisFilter.stimTime.featureExtractor = {@(analysis, epochGroup, analysisParameter)...
@@ -170,9 +169,11 @@ buildAnalysis('Example-Analysis',... % Name of the analysis project
                 analysisFilter)      % Type of analysis filter(s)
 ```
 
-During the build of analysis, the`psthExtractor`is executed and  Pre-Stimulus Time Histogram \(PSTH\) is saved for each epoch group have stimTime has the parameter. In addition, it will also be percolated up on the higher level of analysis tree for further processing and visualization.
+When building the analysis, the `psthExtractor`is executed and a Peri-Stimulus Time Histogram \(PSTH\) is saved for each epoch group that has a unique `stimTime`value as a parameter. In addition, the result is also be percolated up to the higher levels of the analysis tree for further processing and visualization.
 
-> Please be aware of the arguments required in the feature extractor function. It is mandatory to include the input parameters: `analysis, epochGroup, analysisParameter`. Guidelines for [creating a feature extractor](/building-analysis-pipeline/creating-feature-extractor.md) are explained in the next section.
+**Advantages of having `featureExtractorhandle `in filter definition**: As the filter definition, source code and data are loosely coupled, It is possible to execute the analysis on any computer node which has access to data and get the analysis results synchronized. Hence, the data-intensive analysis can be performed in distributed \(or\) remote computer node. 
+
+Please be aware of the arguments required in the feature extractor function. It is mandatory to include the input parameters: `analysis, epochGroup, analysisParameter`. Guidelines for [creating a feature extractor](/building-analysis-pipeline/creating-feature-extractor.md) are explained in the next section.
 
 
 
