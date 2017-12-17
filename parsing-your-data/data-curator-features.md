@@ -50,10 +50,9 @@ To add a specific tag to an epoch or cell, click on Epoch / Cell from the data t
 
 #### e\) Filtering of epochs
 
-Epochs can be filtered based on the parameter as search criteria. It is possible to list the filtered epochs in data tree by enabling _Show Filtered Epochs_ check box. Below example, filters the epoch which has NDF property and Value 3 and the result is displayed in a scrollable text pane.  
+Epochs can be filtered based on the parameters as search criteria. It is possible to list the filtered epochs in the data tree by enabling `Show Filtered Epochs`check box. In the example below, epochs are filtered by the `Property NDF `\(Neutral Density Filter wheel position\) with `value : 3. `The result is displayed in a scrollable text panel. 
+
 ![](/assets/filtering.png)
 
 In the next section, we will see how to [build an analysis pipeline](/building-analysis-pipeline.md).
-
-
 
