@@ -8,11 +8,11 @@
 
 #### b\) Pre-processor functions: detecting and visualizing action potentials
 
-The pre-processor functions include a variety of pre-analysis that prepares the data to be comprehensively analyzed in the [analysis pipeline](/building-analysis-pipeline.md). Amongst them, the detection of action potentials here called spike detection is of central importance and will be used in the following as an example of the pre-processor functions. The functionality is available in the list of pre-processors. On click of `simpleSpikeDetector,` the parameters of the pre-processor function are displayed in the panel below. When selecting a `Threshold,` it detects the action potential on the press of `Execute`button.
+The pre-processor functions include a variety of pre-analysis that prepares the data to be comprehensively processed in the [analysis pipeline](/building-analysis-pipeline.md). Amongst them, the detection of action potentials here called spike detection, is of central importance and will be used in the following as an example of the pre-processor functions. The functionality is available in the list of pre-processors. On click of `simpleSpikeDetector,` the parameters of the pre-processor function are displayed in the panel below. When selecting a `Threshold,` it detects the action potential on the press of `Execute`button.
 
 ![](/assets/spike_detection.png)
 
-Similar pre-processor functions can be custom written and added to the pre-processor list. Let us carefully go through the parameter panel and the documentation of the `simpleSpikeDetector`function to understand how pre-processor functions should be documented and structured to function within the Data Curator Framework. The parameters documented in function `simpleSpikeDetector`are parsed by the Data Curator user interface and updated in the parameter panel.
+Similar pre-processor functions can be custom written and added to the pre-processor list. Let us carefully go through the parameter panel and the documentation of the `simpleSpikeDetector`function to understand how pre-processor functions should be documented and structured to work within the Data Curator Framework. The parameters documented in `simpleSpikeDetector`are parsed by the Data Curator user interface and updated in the parameter panel.
 
 ```
 function simpleSpikeDetector(epochs, parameter)
@@ -40,11 +40,13 @@ end
 
 #### c\) Delete unwanted epochs
 
-To delete an epoch that should not be included in the data analysis, select the epoch from epoch tree and click on `Tag To Delete (or) Ctrl +D` . To undo the tagging, use `Undo Delete Tag (or) Ctr + Z`. Once you are sure about the tagged epochs, Click on `Delete Tagged`. The epochs will now be excluded from the cell data, which is used for further analysis, but still remain in the raw data HDF5 file.
+To delete an epoch that should not be included in the data analysis, select the epoch from epoch tree and click on `Tag To Delete `\(or\) `Ctrl +D` . To undo the tagging, use `Undo Delete Tag `\(or\)` Ctr + Z`. Once you are sure about the tagged epochs, Click on `Delete Tagged`. The epochs will now be excluded from the `cellData`, which is used for further analysis, but still remain in the raw data HDF5 file.
 
 #### d\) Add Epoch/Cell Tags
 
-To add a specific tag to an epoch or cell, click on Epoch / Cell from the data tree, then click on `Add Parameter` and specify the tag you want to add. To remove a parameter, click on the desired parameter from the grid and press `Remove Parameter`.
+To add a specific tag to an epoch or cell, click on Epoch / Cell in the data tree, then click on `Add Parameter` and specify the tag you want to add. To remove a parameter, click on the desired parameter in the parameter grid and press `Remove Parameter`.
+
+
 
 ![](/assets/add_keyword.png)
 

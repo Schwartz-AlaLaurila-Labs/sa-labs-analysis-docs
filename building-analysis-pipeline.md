@@ -1,12 +1,12 @@
 # 1.4 Building an analysis pipeline
 
-Building an analysis pipeline requires s[a-labs-analysis-core](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-analysis-core). It is an analysis framework which abstracts the data structure, storage hierarchy and provides a simplified API \(Application programming interface\) to build an analysis pipeline. The framework captures the information about analysis parameter and the source code while building the analysis.
+Building an analysis pipeline requires [sa-labs-analysis-core](https://github.com/Schwartz-AlaLaurila-Labs/sa-labs-analysis-core). It is an analysis framework which abstracts the data structure, storage hierarchy and provides a simplified API \(Application Programming Interface\). The framework captures the information about analysis parameters and the source code while building the analysis.
 
 Below are the steps involved in building an analysis pipeline,
 
 #### Step 1- Creating an analysis project
 
-The analysis project helps with organizing the `CellData`for a defined purpose. It stores the file names of the cell data and the results of the analysis. The`createAnalysisProject`function requires, a unique name for the project,  and a list of experiment date as mandatory input parameters. The experiment date can be of [Matlab regular expression](https://in.mathworks.com/help/matlab/ref/regexp.html) pattern. Based on experiments pattern, the `createAnalysisProject`checks whether`CellData`exists for this project \(i.e. the raw data has already been parsed previously\). If not, then it parses the raw data file and generates the cell-specific data from the raw data. Otherwise, it loads the already parsed cell data.
+The analysis project helps with organizing the `CellData`for a defined purpose. It stores the file names of the `cellData` and the results of the analysis. The`createAnalysisProject`function requires a unique name for the project,  and a list of experiment date as mandatory input parameters. The experiment date can follow the [Matlab regular expression](https://in.mathworks.com/help/matlab/ref/regexp.html) pattern. Based on the experiment date pattern, the `createAnalysisProject`checks whether`CellData`exists for this project \(i.e. the raw data has already been parsed previously\). If not, then it parses the raw data file and generates the cell-specific data from the raw data. Otherwise, it loads the already parsed `cellData`.
 
 ```Matlab
 [project, offlineAnalysisManager] = createAnalysisProject(...
@@ -38,9 +38,9 @@ The function saves a simple text file formatted as [JSON ](https://www.json.org/
 
 The epoch filter defines the hierarchy in which epochs are grouped together. As an example, we will focus on creating a filter definition to build a `Light Step`analysis pipeline. `Light Step`is a simple flash used to stimulate the neurons. The relevant stimulus parameters are `displayName`= the name of the stimulus protocol \(`Light Step`\), `intensity`= stimulus intensity and `simTime` = the duration of the stimulus display.
 
-The epoch filter definition is programmed as Matlab structure with the following attributes,
+The epoch filter definition is programmed as a Matlab structure with the following attributes,
 
-* `type` -  An unique name for the filter definition
+* `type` -  a unique name for the filter definition
 
 ```Matlab
 analysisFilter.type = 'LightStepAnalysis'
@@ -67,7 +67,7 @@ analysisFilter.buildTreeBy = {'displayName', 'intensity', 'stimTime'};
 >     '    stimTime    '  So on ...
 > ```
 
-It is also possible to group the epoch with different parameters at the same level,
+It is also possible to group epochs with different parameters at the same level,
 
 ```
 analysisFilter.buildTreeBy = {'displayName', 'intensity; probeAxis; textureAngle', 'devices'};
@@ -83,10 +83,9 @@ analysisFilter.buildTreeBy = {'displayName', 'intensity; probeAxis; textureAngle
 >     '  devices    devices     devices    '
 > ```
 
-* `splitValue`-  It further filters the epoch based on the epoch parameter values. Let us assume the epochs with `displayName`have values `LightStep, MovingBar, DriftingGrating`. The below code filters the epoch which has `displayName`equals \`Light Step. 
-  \`
+* `splitValue`-  It further filters the epoch based on the epoch parameter values. Let us assume the epochs with `displayName`have values `LightStep, MovingBar, DriftingGrating`. The below code filters the epoch which have`displayName == Light Step`
 
-The code below follows our example of the LightStepAnalysis and filters the epochs which have `displayName`equals `Light Step`– the ones were a simple flash of light was presented to the cells.
+The code below follows our example of the `LightStepAnalysis`and filters the epochs which have `displayName == Light Step`– the epochs were a simple flash of light was presented to the cells.
 
 ```Matlab
 analysisPreset.displayName.splitValue = {'Light Step'};
@@ -94,9 +93,9 @@ analysisPreset.displayName.splitValue = {'Light Step'};
 
 It is also possible to attach a function handle to `buildTree`and `splitValues`.
 
-* `featureExtractor`- Attaches a function handle to the filtered epoch group for further evaluation \(the feature extractor will be explained in step4\). 
+* `featureExtractor`- attaches a function handle to the filtered epoch group for further evaluation \(the feature extractor will be explained in [step 4](#attaching-feature-extractor)\). 
 
-In summary, the complete filter definition for the example `LightStep`analysis is as follows,
+In summary, the complete filter definition for the example `LightStepAnalysis`is as follows,
 
 ```Matlab
 analysisFilter = struct()
@@ -105,7 +104,7 @@ analysisFilter.buildTreeBy = {'displayName', 'intensity', 'stimTime'};
 analysisPreset.displayName.splitValue = {'Light Step'};
 ```
 
-#### Step 3 - Building the analysis
+#### Step 3 - Building the analysis {#building-analysis}
 
 ```Matlab
 buildAnalysis('Example-Analysis',... % Name of the analysis project
@@ -149,11 +148,11 @@ The function `buildAnalysis`generates the analysis tree as defined by the epoch 
 
 It is also possible to build the analysis for multiple filters. This is achieved by passing an array of analysis filter to the function `bulidAnalysis`.
 
-### Step 4 - Attaching feature extractor & Rebuilding the analysis
+#### Step 4 - Attaching feature extractors & Rebuilding the analysis {#attaching-feature-extractor}
 
-The `featureExtractor` has the [function handle](https://in.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html) to process group of epochs. To perform the feature extraction, assign the feature extractor function handle to the desired level in the analysis tree and rebuild the analysis.
+The `featureExtractor` contains the [function handle](https://in.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html) to process a group of epochs. To perform the feature extraction, assign the feature extractor function handle to the desired level in the analysis tree and rebuild the analysis.
 
-The example below assigns `psthExtractor`to the lowest node \(`stimTime`\)  in the example analysis tree built for the `LightStep`Analysis. `psthExtractor` generates a peri-stimulus time histogram of the neuron’s responses in the selected epoch group.
+The example below assigns `psthExtractor`to the lowest node \(`stimTime`\)  in the example analysis tree built for the `LightStepAnalysis`. The `psthExtractor` generates a peri-stimulus time histogram \(PSTH\) of the neuron’s responses in the selected epoch group.
 
 ```
 analysisFilter.stimTime.featureExtractor = {@(analysis, epochGroup, analysisParameter)...
@@ -171,9 +170,9 @@ buildAnalysis('Example-Analysis',... % Name of the analysis project
                 analysisFilter)      % Type of analysis filter(s)
 ```
 
-When building the analysis, the `psthExtractor`is executed and a Peri-Stimulus Time Histogram \(PSTH\) is saved for each epoch group that has a unique `stimTime`value as a parameter. In addition, the result is also be percolated up to the higher levels of the analysis tree for further processing and visualization.
+When building the analysis, the `psthExtractor`is executed and a PSTH is saved for each epoch group that has a unique `stimTime`value as a parameter. In addition, the result is also percolated up to the higher levels of the analysis tree for further processing and visualization.
 
 > Please be aware of the arguments required in the feature extractor function. It is mandatory to include the input parameters: `analysis, epochGroup, analysisParameter`. Guidelines for [creating a feature extractor](/building-analysis-pipeline/creating-feature-extractor.md) are explained in the next section.
 
-Advantages of having `featureExtractorhandle`in filter definition: As the filter definition, source code and data are loosely coupled, It is possible to execute the analysis on any computer node which has access to data and get the analysis results synchronized. Hence, the data-intensive analysis can be performed in distributed \(or\) remote computer node.
+There are advantages of including the `featureExtractor`handle in the filter definition: when the filter definition, source code, and data are coupled, it is possible to execute the analysis and synchronize the results on any computer which has access to the data. Hence, the data-intensive analysis can be performed in distributed \(or\) a remote computer.
 
