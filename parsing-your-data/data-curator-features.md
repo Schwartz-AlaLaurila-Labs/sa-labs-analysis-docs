@@ -8,7 +8,7 @@
 
 #### b\) Pre-processor functions: detecting and visualizing action potentials
 
-The pre-processor functions include a variety of pre-analysis that prepares the data to be comprehensively analyzed in the analysis pipeline. Amongst them, the detection of action potentials here called spike detection is of central importance and will be used in the following as an example of the pre-processor functions. The functionality is available in the list of pre-processors. On click of `simpleSpikeDetector`, the parameters of the pre-processor function are displayed in the panel below. When selecting a `Threshold` and press of `Execute`button detects the action potentials. 
+The pre-processor functions include a variety of pre-analysis that prepares the data to be comprehensively analyzed in the analysis pipeline. Amongst them, the detection of action potentials here called spike detection is of central importance and will be used in the following as an example of the pre-processor functions. The functionality is available in the list of pre-processors. On click of `simpleSpikeDetector,` the parameters of the pre-processor function are displayed in the panel below. When selecting a `Threshold,` it detects the action potential on the press of `Execute`button.
 
 ![](/assets/spike_detection_on_curator.png)
 
