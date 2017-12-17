@@ -1,6 +1,6 @@
 # 1.5 Visualizing your results
 
-To visualize the analysis tree and its extracted features, run `openTreeBrowser.m` from the Matlab command line with your analysis project as an input argument.   
+To visualize the analysis tree and its extracted features, run `openTreeBrowser.m` from the Matlab command line with your analysis project as an input argument.  
 Let us use the example of the previously created analysis project Example-Analysis\_01.
 
 `openTreeBrowse('Example-Analysis_01');`
@@ -17,9 +17,9 @@ To register a new plotting function for the tree browser, package your function 
 
 ![](/assets/psth_response.png)
 
-Let us focus on the leaf of tree browser,  PSTH is computed and stored for different epoch group. First, on the node`stimTime = 20` , and second on the node`stimTime = 500.`As explained in the building analysis steps, the computed feature is percolated to the upper nodes. Hence,  the node`intensity == 1`will have access to PSTH of both the groups.
+Let us focus on the leaf of tree browser, the PSTH feature is computed and stored for different epoch group. First, on the node`stimTime = 20` , and second on the node`stimTime = 500.`As explained in the building analysis steps, the computed feature is percolated to the upper nodes. Hence,  the node`intensity == 1`will have access to PSTH of both the groups.
 
-On selecting the node `intensity == 1` and checking the `Iterate Features`, from Tree Browser. It is possible to iterate through two PSTH plot using `Next `and `Previous `button
+On selecting the node `intensity == 1` and checking the `Iterate Features`, from Tree Browser. It is possible to iterate through two PSTH plot using `Next`and `Previous`button
 
 ![](/assets/feature_iteration)
 
