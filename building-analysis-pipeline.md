@@ -148,7 +148,7 @@ The function `buildAnalysis`generates the analysis tree as defined by the epoch 
 >     '    stimTime==20 (5)          stimTime==500 (6)     '
 > ```
 
-It is also possible to build the analysis for multiple filters. This is achieved by passing an array of analysis filter to the function `bulidAnalysis`. 
+It is also possible to build the analysis for multiple filters. This is achieved by passing an array of analysis filter to the function `bulidAnalysis`.
 
 ### Step 4 - Attaching feature extractor & Rebuilding the analysis
 
@@ -172,7 +172,7 @@ buildAnalysis('Example-Analysis',... % Name of the analysis project
 
 During the build of analysis, the`psthExtractor`is executed and  Pre-Stimulus Time Histogram \(PSTH\) is saved for each epoch group have stimTime has the parameter. In addition, it will also be percolated up on the higher level of analysis tree for further processing and visualization.
 
-> Please make a note of arguments in the feature extractor function. It is mandatory to have featureExtractor function signature with input parameters`analysis, epochGroup, analysisParameter.`Guidelines for creating a [feature extractor](/building-analysis-pipeline/creating-feature-extractor.md) is explained in next section.
+> Please be aware of the arguments required in the feature extractor function. It is mandatory to include the input parameters: `analysis, epochGroup, analysisParameter`. Guidelines for [creating a feature extractor](/building-analysis-pipeline/creating-feature-extractor.md) are explained in the next section.
 
 
 
