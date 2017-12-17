@@ -2,7 +2,7 @@
 
 ## Tutorial
 
-* [Introduction](/Introduction_special_assignment.md)
+* [Introduction](/README.md)
 * [Getting Started](getting-started.md)
 * [Parsing your data](parsing-your-data.md)
   * [Data curator features](parsing-your-data/data-curator-features.md)
