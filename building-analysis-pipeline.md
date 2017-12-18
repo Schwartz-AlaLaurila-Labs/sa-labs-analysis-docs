@@ -6,7 +6,7 @@ Below are the steps involved in building an analysis pipeline,
 
 #### Step 1- Creating an analysis project
 
-The analysis project helps with organizing the `CellData`for a defined purpose. It stores the file names of the `cellData` and the results of the analysis. The`createAnalysisProject`function requires a unique name for the project,  and a list of experiment date as mandatory input parameters. The experiment date can follow the [Matlab regular expression](https://in.mathworks.com/help/matlab/ref/regexp.html) pattern. Based on the experiment date pattern, the `createAnalysisProject`checks whether`CellData`exists for this project \(i.e. the raw data has already been parsed previously\). If not, then it parses the raw data file and generates the cell-specific data from the raw data. Otherwise, it loads the already parsed `cellData`.
+The analysis project helps with organizing the `CellData`for a defined purpose. It stores the file names of the `cellData` and the results of the analysis. The`createAnalysisProject`function requires a unique name for the project,  and a list of experiment dates as mandatory input parameters. The experiment date can follow the [Matlab regular expression](https://in.mathworks.com/help/matlab/ref/regexp.html) pattern. Based on the experiment date pattern, the `createAnalysisProject`checks whether`CellData`exists for this project \(i.e. the raw data has already been parsed previously\). If not, then it parses the raw data file and generates the cell-specific data from the raw data. Otherwise, it loads the already parsed `cellData`.
 
 ```Matlab
 [project, offlineAnalysisManager] = createAnalysisProject(...
