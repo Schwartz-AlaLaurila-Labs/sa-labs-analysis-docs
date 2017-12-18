@@ -1,5 +1,7 @@
 # 1.2 Getting Started
 
+> Requirements - Matlab 2016a+, Windows 7/10 \(or\) OS-X \(or\) ubuntu 16+.
+
 ## Installation
 
 1\) Open Matlab and go to its home directory using `cd(userpath());` Create a projects folder in the home directory using `mkdir('projects')`
@@ -12,7 +14,7 @@
 
 3\) Download and install [ToolboxToolbox](https://github.com/ToolboxHub/ToolboxToolbox) by following the [installation instructions](https://github.com/ToolboxHub/ToolboxToolbox#installation). Restart MATLAB
 
-4\) Run the function `tbUseProject('sa-labs-analysis');` in the Matlab command window. It will start installing the data analysis toolbox with the required dependency. To verify the installation, check the last few lines of the Matlab console. It should look as below:
+4\) Run the function `tbUseProject('sa-labs-analysis');` in the Matlab command window. It will start installing the data analysis toolbox with the required dependencies. To verify the installation, check the last few lines of the Matlab console. It should look as below:
 
 ```
 Checking for "sa-labs-analysis" local hook.
