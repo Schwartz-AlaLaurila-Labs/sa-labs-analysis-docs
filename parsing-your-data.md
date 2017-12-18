@@ -18,5 +18,7 @@ c\) After clicking `Open`, the HDF5 data is parsed and the curator window is upd
 
 ![](/assets/curator_with_data.png)
 
+In this example, the Data Curator shows the list of epochs recorded in a mouse retinal ganglion cell, which was subjected to different types of visual stimulation. An example of one such light stimulus is `Light Step` , where a simple flash of light is presented to the neurons. The neuron was recorded extracellularly, and the resulting action potentials during the flash of light are visible in the plot window of the Data Curator. 
+
 Let us explore the [data curator features](/parsing-your-data/data-curator-features.md) further.
 
